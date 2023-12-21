@@ -1,0 +1,29 @@
+[project]
+name = "Spam-Classifier"
+version = "0.0.0"
+description = "Spam Classifier api service"
+authors = [
+ { name = "Dzenis Madzovic", email = "dzenis.madzovic@gmail.com" } 
+]
+
+dependencies = [
+  "build",
+  "jupyter",
+  "matplotlib",
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "uvicorn",
+  "fastapi",
+  "nltk"
+]
+
+[tool.setuptools.packages.find]
+
+[build-system]
+requires = [
+  "setuptools>=46.1.3",
+  "wheel>=0.34.2"
+]
+build-backend = "setuptools.build_meta"
