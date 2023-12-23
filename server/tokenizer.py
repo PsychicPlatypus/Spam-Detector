@@ -2,7 +2,6 @@ from typing import List
 from nltk.tokenize import word_tokenize
 import nltk
 import pandas as pd
-import numpy as np
 
 
 class Tokenizer:
@@ -13,14 +12,16 @@ class Tokenizer:
         self.row_arr = self.__trim_rows(df.columns.values.tolist())
         self.__populate_token_map()
 
-    def tokenize_string(self, str_: str) -> pd.DataFrame:
+    def tokenize_string(self, str_: str):
         str_ = str_.lower()
         tokenized = word_tokenize(str_)
-        print(tokenized)
+
         for i in tokenized:
             if i in self.row_arr:
-                print(i)
                 self.token_map[i] += 1
+
+    def to_dataframe(self) -> pd.DataFrame:
+        return pd.DataFrame(self.token_map, index=[0])
 
     def __trim_rows(self, rows: List[str]) -> List[str]:
         rows.remove("Email No.")
